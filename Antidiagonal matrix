@@ -1,0 +1,59 @@
+Java Program – Print Non-Diagonal (Anti-Diagonal Excluded) Elements of a Square Matrix
+This Java program performs the following tasks:
+Accepts a matrix input from the user.
+Prints the entire matrix.
+Prints only the non-diagonal elements — excluding both the main diagonal (i == j) and the anti-diagonal (i + j == n - 1).
+Features:
+Works for square matrices (where number of rows equals number of columns)
+Reads dynamic matrix size from the user
+Demonstrates use of nested loops and conditional logic for diagonal element exclusion
+
+
+import java.util.*;
+public class Antidiagonal {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int rows =sc.nextInt();
+        int cols=sc.nextInt();
+        int[][] arr = new int[rows][cols];
+        for(int i=0; i<=arr.length-1; i++){
+            for(int j=0;j<=arr.length-1 ;j++){
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        for(int i=0;i<=arr.length-1;i++){
+            for(int j=0;j<=arr[0].length-1;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("The antidiagonal elements are:");
+        
+        for(int i=0;i<=arr.length;i++){
+            for(int j=0;j<=arr[0].length-1;j++){
+                if(rows==cols){
+                    if(i!=j & i+j!=arr.length-1){
+                        System.out.print(arr[i][j]+" ");
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+
+Sample Input:
+3
+3
+1 2 3
+4 5 6
+7 8 9
+Sample Output:
+Edit
+1 2 3 
+4 5 6 
+7 8 9 
+The antidiagonal elements are:
+2 4 6 8 
